@@ -1,17 +1,23 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math"
+	"unicode/utf8"
 )
 
-func atoi(s string) int {
+func atoi(s string) (int, error) {
 	n := 0
 	e := 0
-	for i := 1; i <= len(s); i++ {
-		e = int(math.Pow(10, float64(i)))
-		fmt.Println(s[i:]) // Тут хуйня не работает
-		switch s[i:] {
+	j := 0
+	var err error
+	for i := len(s); i != 0; i-- {
+		e = int(math.Pow(10, float64(j)))
+		j++
+		t1 := s[:i]
+		temp, _ := utf8.DecodeLastRuneInString(t1)
+		switch string(temp) {
 		case "1":
 			n = n + 1*e
 		case "2":
@@ -30,12 +36,21 @@ func atoi(s string) int {
 			n = n + 8*e
 		case "9":
 			n = n + 9*e
+		case "0":
+			n = n + 0*e
+		default:
+			err = errors.New("Ввели не число")
+			return n, err
 		}
 	}
-	return n
+	return n, err
 }
 
 func main() {
-	c := atoi("14")
-	fmt.Println(c)
+	c, err := atoi("54500")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(c)
+	}
 }
