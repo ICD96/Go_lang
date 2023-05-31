@@ -6,15 +6,15 @@ import (
 )
 
 func main() {
-	s := "Hello"
-	s1 := ""
+	str := "Hello"
+	rev := ""
 	t := ""
-	for i := len(s); i != 0; i-- {
-		t = s[:i]
-		temp, _ := utf8.DecodeLastRuneInString(t)
-		if temp != 65533 {
-			s1 = s1 + string(temp)
+	for i := len(str); i != 0; i-- {
+		t = str[:i]
+		t1, _ := utf8.DecodeLastRuneInString(t)
+		if t1 != 65533 {
+			rev = rev + string(t1)
 		}
 	}
-	fmt.Println(s1)
+	fmt.Println(rev)
 }
