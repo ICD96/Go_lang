@@ -4,22 +4,23 @@ import (
 	"fmt"
 )
 
+// Пока что сделал без структуры, нужно будет уточнить правильно ли это
 type Calculator struct {
 }
 
-func (c Calculator) Sum(a, b int) int {
+func Sum(a, b int) int {
 	return a + b
 }
 
-func (c Calculator) Sub(a, b int) int {
+func Sub(a, b int) int {
 	return a - b
 }
 
-func (c Calculator) Div(a, b int) int {
+func Div(a, b int) int {
 	return a / b
 }
 
-func (c Calculator) Mult(a, b int) int {
+func Mult(a, b int) int {
 	return a * b
 }
 
@@ -28,19 +29,18 @@ func New() Calculator {
 }
 
 func main() {
-	a := New(0, 0)
+	a := 0
+	b := 0
 	c := ""
-	fmt.Scan(&a.a, &c, &a.b)
-	//fmt.Scan(&a.b)
-	//	fmt.Fscan(os.Stdin, &c)
+	fmt.Scan()
 	switch c {
 	case "+":
-		fmt.Println(a.Sum(a.a, a.b))
+		fmt.Println(Sum(a, b))
 	case "-":
-		fmt.Println(a.Sub(a.a, a.b))
+		fmt.Println(Sub(a, b))
 	case "*":
-		fmt.Println(a.Mult(a.a, a.b))
+		fmt.Println(Mult(a, b))
 	case "/":
-		fmt.Println(a.Div(a.a, a.b))
+		fmt.Println(Div(a, b))
 	}
 }
