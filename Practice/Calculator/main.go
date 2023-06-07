@@ -5,8 +5,6 @@ import (
 )
 
 type Calculator struct {
-	a int
-	b int
 }
 
 func (c Calculator) Sum(a, b int) int {
@@ -25,11 +23,8 @@ func (c Calculator) Mult(a, b int) int {
 	return a * b
 }
 
-func New(a, b int) Calculator {
-	return Calculator{
-		a: a,
-		b: b,
-	}
+func New() Calculator {
+	return Calculator{}
 }
 
 func main() {

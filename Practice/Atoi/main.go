@@ -11,7 +11,6 @@ func atoi(s string) (int, error) {
 	n := 0
 	e := 0
 	j := 0
-	var err error
 	for i := len(s); i != 0; i-- {
 		e = int(math.Pow(10, float64(j)))
 		j++
@@ -39,11 +38,10 @@ func atoi(s string) (int, error) {
 		case "0":
 			n = n + 0*e
 		default:
-			err = errors.New("Ввели не число")
-			return n, err
+			return n, errors.New("Ввели не число")
 		}
 	}
-	return n, err
+	return n, nil
 }
 
 func main() {

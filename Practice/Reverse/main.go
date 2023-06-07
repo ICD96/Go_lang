@@ -5,8 +5,9 @@ import (
 	"unicode/utf8"
 )
 
+// Сделать другим решением
 func main() {
-	str := "Hello"
+	str := "Привет"
 	rev := ""
 	t := ""
 	for i := len(str); i != 0; i-- {
