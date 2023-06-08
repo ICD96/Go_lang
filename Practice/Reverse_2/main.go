@@ -3,14 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	var temp []rune
 	str := "Привет"
 	run := []rune(str)
 	fin := ""
-	for i := len(str) / 2; i != 0; i-- {
-		run = run[:i]
-		temp = run[len(run)-1:]
-		fin = fin + string(temp)
+	for i := len(str); i != 0; i-- {
+		fin = fin + string(run[i-1:i])
 	}
+
 	fmt.Println(fin)
 }
