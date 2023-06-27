@@ -4,11 +4,10 @@ import "fmt"
 
 func main() {
 	str := "Привет"
-	run := []rune(str)
-	fin := ""
-	for i := len(str); i != 0; i-- {
-		fin = fin + string(run[i-1:i])
+	runes := []rune(str)
+	result := make([]rune, 0, len(runes))
+	for i := len(runes); i != 0; i-- {
+		fin = append(result, runes[i-1])
 	}
-
-	fmt.Println(fin)
+	fmt.Println(string(fin))
 }
